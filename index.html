@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="description" content="Springs Cup — a cross-church dodgeball tournament for middle and high school students across Colorado Springs. Hosted at Springs Church." />
+<meta name="theme-color" content="#131313" />
+<title>SPRINGS CUP // CROSS-CHURCH DODGEBALL</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Springs Cup // Cross-Church Dodgeball" />
+<meta property="og:description" content="Cross-church dodgeball. 1 cup. No mercy promised. Middle + High School. Hosted at Springs Church." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://springscup.com/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Lexend:wght@300..800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          background: '#131313',
+          surface: '#131313',
+          'surface-dim': '#0e0e0e',
+          'surface-container': '#1f1f1f',
+          'surface-container-low': '#1b1b1b',
+          'surface-container-high': '#2a2a2a',
+          'surface-container-highest': '#353535',
+          'surface-variant': '#353535',
+          'surface-bright': '#393939',
+          'on-background': '#e5e2e1',
+          'on-surface': '#e5e2e1',
+          'on-surface-variant': '#c5c5da',
+          primary: '#bcc2ff',
+          'primary-container': '#2e46ff',
+          'on-primary-container': '#dadcff',
+          'on-primary': '#00169c',
+          secondary: '#ffffff',
+          'secondary-fixed': '#c3f400',
+          'secondary-fixed-dim': '#abd600',
+          'on-secondary-fixed': '#161e00',
+          tertiary: '#ff5c00',
+          'tertiary-container': '#bb2a00',
+          outline: '#8f8fa3',
+          'outline-variant': '#444657',
+          error: '#ffb4ab',
+          'error-container': '#93000a',
+          'on-error-container': '#ffdad6',
+          locked: '#39ff7a',
+        },
+        borderRadius: {
+          DEFAULT: '0',
+          sm: '0',
+          md: '0',
+          lg: '0',
+          xl: '0',
+          full: '9999px',
+        },
+        fontFamily: {
+          display: ['Anybody', 'system-ui', 'sans-serif'],
+          body: ['Lexend', 'system-ui', 'sans-serif'],
+          mono: ['"Space Mono"', 'ui-monospace', 'monospace'],
+        },
+        fontSize: {
+          'display-xl': ['clamp(48px, 14vw, 112px)', { lineHeight: '0.9', letterSpacing: '-0.04em', fontWeight: '900' }],
+          'display-lg': ['clamp(40px, 10vw, 80px)', { lineHeight: '0.95', letterSpacing: '-0.03em', fontWeight: '900' }],
+          'headline-lg': ['clamp(28px, 6vw, 48px)', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '800' }],
+          'headline-md': ['clamp(22px, 4.5vw, 32px)', { lineHeight: '1.1', fontWeight: '800' }],
+          'headline-sm': ['20px', { lineHeight: '1.2', fontWeight: '700' }],
+          'body-lg': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
+          'body-md': ['16px', { lineHeight: '1.55', fontWeight: '400' }],
+          'body-sm': ['14px', { lineHeight: '1.5', fontWeight: '400' }],
+          'label-mono': ['12px', { lineHeight: '1', letterSpacing: '0.1em', fontWeight: '700' }],
+          'label-mono-sm': ['10px', { lineHeight: '1', letterSpacing: '0.12em', fontWeight: '700' }],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  /* Base */
+  html, body { background: #131313; }
+  body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Material Symbols default */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    line-height: 1;
+  }
+
+  /* Halftone dots background */
+  .halftone-bg {
+    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 8px 8px;
+  }
+  .halftone-bg-dense {
+    background-image: radial-gradient(rgba(255,255,255,0.12) 1.5px, transparent 1.5px);
+    background-size: 14px 14px;
+  }
+
+  /* Grid pattern */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Chrome text effect */
+  .chrome-text {
+    background: linear-gradient(to bottom, #ffffff 0%, #c6c6c7 38%, #2e46ff 50%, #c6c6c7 62%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.6);
+    filter: drop-shadow(0 0 24px rgba(46,70,255,0.25));
+  }
+
+  /* Hazard stripe */
+  .hazard-stripes {
+    background-image: repeating-linear-gradient(-45deg, #000, #000 10px, #c3f400 10px, #c3f400 20px);
+  }
+  .tape-texture {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(0,0,0,0.18) 8px, rgba(0,0,0,0.18) 16px);
+  }
+
+  /* Hard shadow utilities */
+  .shadow-hard       { box-shadow: 4px 4px 0 0 #000; }
+  .shadow-hard-lg    { box-shadow: 8px 8px 0 0 #000; }
+  .shadow-hard-xl    { box-shadow: 12px 12px 0 0 #000; }
+  .shadow-hard-lime  { box-shadow: 4px 4px 0 0 #c3f400; }
+  .shadow-hard-cobalt{ box-shadow: 4px 4px 0 0 #2e46ff; }
+  .shadow-hard-cobalt-lg { box-shadow: 8px 8px 0 0 #2e46ff; }
+
+  /* Click press */
+  .press { transition: transform 80ms ease-out, box-shadow 80ms ease-out; }
+  .press:active, .press.is-pressed { transform: translate(4px, 4px); box-shadow: 0 0 0 0 transparent !important; }
+
+  /* Page transitions */
+  .page { display: none; }
+  .page.active { display: block; animation: fadeUp .25s ease-out; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Sticker rotation helpers */
+  .rot-3 { transform: rotate(3deg); }
+  .rot-neg-3 { transform: rotate(-3deg); }
+  .rot-6 { transform: rotate(6deg); }
+  .rot-neg-6 { transform: rotate(-6deg); }
+
+  /* Marquee */
+  .marquee { display: flex; gap: 3rem; white-space: nowrap; }
+  .marquee-track { display: flex; gap: 3rem; animation: marquee 30s linear infinite; padding-right: 3rem; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 92px);
+    transform: translateX(-50%) translateY(40px); opacity: 0;
+    transition: transform .25s ease-out, opacity .25s ease-out;
+    z-index: 9999; pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .toast { bottom: 32px; }
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
+
+  /* Bottom tab safe area */
+  .bottom-tabs { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px); }
+
+  /* Hide number input spinners */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type=number] { -moz-appearance: textfield; }
+
+  /* Selection */
+  ::selection { background: #c3f400; color: #161e00; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #131313; }
+  ::-webkit-scrollbar-thumb { background: #353535; border: 2px solid #131313; }
+  ::-webkit-scrollbar-thumb:hover { background: #c3f400; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .marquee-track { animation: none; }
+  }
+</style>
+</head>
+
+<body class="bg-background text-on-background font-body min-h-screen flex flex-col selection:bg-secondary-fixed">
+
+<!-- ============ TOP NAV (DESKTOP + TABLET) ============ -->
+<header class="hidden md:flex justify-between items-center w-full px-6 lg:px-10 h-20 bg-background sticky top-0 z-50 border-b-4 border-black shadow-[0_4px_0_0_#000]">
+  <a data-nav="home" href="#/home" class="font-display text-headline-lg font-black italic text-secondary-fixed tracking-tighter hover:skew-x-[-6deg] transition-transform">SPRINGS CUP</a>
+  <nav class="flex gap-2 items-center font-mono text-label-mono uppercase">
+    <a data-nav="home"     href="#/home"     class="nav-link px-3 py-2 border-4 border-transparent">HOME</a>
+    <a data-nav="register" href="#/register" class="nav-link px-3 py-2 border-4 border-transparent">REGISTER</a>
+    <a data-nav="squads"   href="#/squads"   class="nav-link px-3 py-2 border-4 border-transparent">SQUADS</a>
+    <a data-nav="playbook" href="#/playbook" class="nav-link px-3 py-2 border-4 border-transparent">PLAYBOOK</a>
+  </nav>
+  <a href="#/register" class="press bg-secondary-fixed text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-5 py-3 border-4 border-black shadow-hard">JOIN BATTLE</a>
+</header>
+
+<!-- ============ MAIN ROUTER ============ -->
+<main id="app" class="flex-grow relative pb-24 md:pb-0">
+
+  <!-- ===== HOME PAGE ===== -->
+  <section id="page-home" class="page">
+
+    <!-- Hero -->
+    <div class="relative min-h-[88svh] md:min-h-[90vh] flex flex-col justify-center items-center px-5 md:px-10 py-16 overflow-hidden border-b-8 border-black bg-surface-dim">
+      <!-- Layered backgrounds -->
+      <div class="absolute inset-0 grid-bg opacity-50"></div>
+      <div class="absolute inset-0 halftone-bg-dense opacity-40"></div>
+      <div class="absolute -top-32 -right-32 w-[28rem] h-[28rem] bg-primary-container/15 blur-3xl"></div>
+      <div class="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] bg-secondary-fixed/10 blur-3xl"></div>
+
+      <!-- Status pill -->
+      <div class="relative z-10 mb-6 inline-flex items-center gap-2 bg-surface-container border-4 border-black px-4 py-2 shadow-hard rot-neg-3">
+        <span class="w-3 h-3 bg-secondary-fixed animate-pulse"></span>
+        <span class="font-mono text-label-mono uppercase text-on-surface" id="hero-status">REGISTRATION OPEN</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="relative z-10 font-display text-display-xl uppercase chrome-text text-center px-2 break-words max-w-5xl">
+        THE CUP<br/>AWAITS
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="relative z-10 mt-6 max-w-2xl text-center font-display text-headline-md uppercase text-secondary border-l-4 border-r-4 border-secondary-fixed bg-surface-container/70 backdrop-blur-sm p-4 -skew-x-3">
+        Cross-church dodgeball.<br class="md:hidden"/>
+        <span class="text-secondary-fixed">Middle + High School.</span><br class="md:hidden"/>
+        Bring your squad. Claim the chrome.
+      </p>
+
+      <!-- CTAs -->
+      <div class="relative z-10 mt-8 flex flex-col sm:flex-row gap-4 w-full max-w-md sm:max-w-none">
+        <a href="#/register" class="press bg-secondary-fixed text-on-secondary-fixed font-display text-headline-md uppercase font-black px-7 py-5 border-4 border-black shadow-hard-lg text-center">
+          REGISTER · $25
+        </a>
+        <a href="#/playbook" class="press bg-surface-container text-secondary font-display text-headline-md uppercase font-black px-7 py-5 border-4 border-black shadow-hard-lg text-center">
+          RULES OF WAR
+        </a>
+      </div>
+
+      <!-- Tape stickers -->
+      <div class="hidden sm:block absolute top-10 left-6 w-32 h-8 bg-surface-variant tape-texture border-2 border-black shadow-hard rot-6 z-10"></div>
+      <div class="hidden sm:block absolute bottom-12 right-6 w-44 h-9 bg-surface-variant tape-texture border-2 border-black shadow-hard rot-neg-6 z-10"></div>
+    </div>
+
+    <!-- Marquee strip -->
+    <div class="bg-secondary-fixed border-y-4 border-black overflow-hidden py-3">
+      <div class="marquee">
+        <div class="marquee-track font-display text-headline-md uppercase text-on-secondary-fixed font-black">
+          <span>NO MERCY PROMISED</span><span>★</span>
+          <span>ALL CHURCHES WELCOME</span><span>★</span>
+          <span>BRING YOUR HEAT</span><span>★</span>
+          <span>CROSS CHURCH BATTLE</span><span>★</span>
+          <span>SPRINGS CHURCH HOSTS</span><span>★</span>
+          <span>NO MERCY PROMISED</span><span>★</span>
+          <span>ALL CHURCHES WELCOME</span><span>★</span>
+          <span>BRING YOUR HEAT</span><span>★</span>
+          <span>CROSS CHURCH BATTLE</span><span>★</span>
+          <span>SPRINGS CHURCH HOSTS</span><span>★</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats block -->
+    <section class="px-5 md:px-10 py-12 md:py-20 max-w-7xl mx-auto w-full">
+      <div class="grid grid-cols-3 gap-3 md:gap-6">
+        <div class="bg-surface-container border-4 border-black shadow-hard p-4 md:p-6 text-center">
+          <div class="font-display font-black text-headline-lg text-primary leading-none" data-stat="teams">—</div>
+          <div class="font-mono text-label-mono uppercase text-on-surface-variant mt-2">SQUADS IN</div>
+        </div>
+        <div class="bg-surface-container border-4 border-black shadow-hard p-4 md:p-6 text-center">
+          <div class="font-display font-black text-headline-lg text-secondary-fixed leading-none">1</div>
+          <div class="font-mono text-label-mono uppercase text-on-surface-variant mt-2">CUP</div>
+        </div>
+        <div class="bg-surface-container border-4 border-black shadow-hard p-4 md:p-6 text-center">
+          <div class="font-display font-black text-headline-lg text-tertiary leading-none">∞</div>
+          <div class="font-mono text-label-mono uppercase text-on-surface-variant mt-2">GLORY</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why join · bento grid -->
+    <section class="px-5 md:px-10 py-12 md:py-16 max-w-7xl mx-auto w-full">
+      <h2 class="font-display text-headline-lg uppercase mb-8 inline-block border-b-4 border-secondary-fixed pb-2">
+        Why Join the Grind?
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+        <!-- Glory -->
+        <div class="md:col-span-8 bg-surface-container border-4 border-black shadow-hard-lg p-6 md:p-8 halftone-bg relative overflow-hidden min-h-[220px] flex flex-col justify-between">
+          <div>
+            <span class="material-symbols-outlined text-6xl text-secondary-fixed">emoji_events</span>
+            <h3 class="font-display text-headline-md uppercase mt-2 text-secondary">Ultimate Glory</h3>
+          </div>
+          <p class="font-body text-body-md text-on-surface-variant max-w-md mt-4 bg-surface/70 p-3 border border-outline-variant">
+            One night. One cup. One squad walks out of Springs Church a legend.
+          </p>
+        </div>
+
+        <!-- Action -->
+        <div class="md:col-span-4 bg-primary-container border-4 border-black shadow-hard-lg p-6 halftone-bg relative overflow-hidden min-h-[220px] flex flex-col justify-center items-center text-center">
+          <span class="material-symbols-outlined text-7xl text-on-primary-container">sports_martial_arts</span>
+          <h3 class="font-display text-headline-md uppercase mt-3 text-on-primary-container">Raw Action</h3>
+        </div>
+
+        <!-- Squad -->
+        <div class="md:col-span-4 bg-surface-container border-4 border-black shadow-hard-lg p-6 halftone-bg relative overflow-hidden min-h-[220px] flex flex-col justify-center items-center text-center">
+          <span class="material-symbols-outlined text-7xl text-tertiary">groups</span>
+          <h3 class="font-display text-headline-md uppercase mt-3 text-secondary">Squad Up</h3>
+        </div>
+
+        <!-- Pro setup -->
+        <div class="md:col-span-8 bg-surface-container border-4 border-black shadow-hard-lg p-6 md:p-8 halftone-bg relative overflow-hidden min-h-[220px] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div class="max-w-md">
+            <h3 class="font-display text-headline-md uppercase text-secondary mb-2">Pro Arena Vibes</h3>
+            <p class="font-body text-body-md text-on-surface-variant bg-surface/70 p-3 border border-outline-variant">
+              Live music. Real refs. Pizza after. We don't half-step.
+            </p>
+          </div>
+          <span class="material-symbols-outlined text-8xl md:text-9xl text-surface-variant opacity-60 self-end md:self-auto">stadium</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hype block -->
+    <section class="px-5 md:px-10 py-12 md:py-20 w-full bg-surface-container-high border-y-8 border-black relative overflow-hidden">
+      <div class="absolute inset-0 halftone-bg opacity-30"></div>
+      <div class="max-w-5xl mx-auto relative z-10 text-center">
+        <h2 class="font-display text-headline-lg uppercase text-secondary border-l-8 border-secondary-fixed pl-4 inline-block text-left">
+          NO MERCY<br/>PROMISED.
+        </h2>
+        <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto mt-6 bg-surface p-4 border-2 border-outline-variant shadow-hard">
+          This isn't gym class. Squads from churches across the Springs. One walks out lifting the chrome.
+          Six players per team, four to compete. We pair you up if you don't have six.
+        </p>
+        <a href="#/register" class="press inline-block mt-8 bg-secondary-fixed text-on-secondary-fixed font-display text-headline-md uppercase font-black px-8 py-5 border-4 border-black shadow-hard-lg">
+          CLAIM YOUR SPOT →
+        </a>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- ===== REGISTER PAGE ===== -->
+  <section id="page-register" class="page">
+    <div class="px-4 md:px-10 py-8 md:py-14 grid-bg min-h-screen">
+      <div class="max-w-3xl mx-auto relative">
+
+        <!-- Layered card -->
+        <div class="absolute inset-0 bg-primary-container border-4 border-black translate-x-2 translate-y-2 z-0"></div>
+        <div class="relative z-10 bg-surface-container border-4 border-black p-5 md:p-10 shadow-hard-lime">
+
+          <!-- Tape -->
+          <div class="absolute -top-3 -left-3 w-20 h-7 bg-surface-variant tape-texture border-2 border-black rot-neg-6 z-20"></div>
+
+          <!-- Heading -->
+          <header class="mb-8 relative">
+            <h1 class="font-display text-display-lg uppercase text-secondary leading-none mb-3 tracking-tighter">
+              CLAIM<br/>YOUR<br/><span class="text-secondary-fixed">SPOT</span>
+            </h1>
+            <p class="font-mono text-label-mono uppercase text-on-surface-variant max-w-md border-l-4 border-secondary-fixed pl-3">
+              ENTER SQUAD INTEL · LOCK IN ROSTER · PAY $25 VIA CCB
+            </p>
+            <div class="absolute top-0 right-0 bg-secondary-fixed text-on-secondary-fixed border-4 border-black px-3 py-1 rot-6 shadow-hard font-mono text-label-mono uppercase">
+              ENTRY · $25
+            </div>
+          </header>
+
+          <!-- Form -->
+          <form id="register-form" novalidate class="space-y-7">
+
+            <!-- Squad intel -->
+            <fieldset class="border-4 border-black p-5 md:p-6 bg-surface-dim relative">
+              <legend class="bg-secondary-fixed text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black ml-3 -translate-y-1">SQUAD INTEL</legend>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
+
+                <label class="relative block">
+                  <span class="absolute -top-3 left-3 bg-secondary text-on-secondary-fixed font-mono text-label-mono-sm uppercase px-2 border-2 border-black z-10">SQUAD NAME</span>
+                  <input name="teamName" required maxlength="40"
+                    class="w-full bg-background border-4 border-black text-secondary font-body text-body-md p-4 focus:outline-none focus:border-secondary-fixed focus:shadow-hard-lime transition-all placeholder:text-outline"
+                    placeholder="e.g. NEON GHOSTS" type="text" autocomplete="off" />
+                </label>
+
+                <label class="relative block">
+                  <span class="absolute -top-3 left-3 bg-secondary text-on-secondary-fixed font-mono text-label-mono-sm uppercase px-2 border-2 border-black z-10">CHURCH / GROUP</span>
+                  <input name="church" required maxlength="60"
+                    class="w-full bg-background border-4 border-black text-secondary font-body text-body-md p-4 focus:outline-none focus:border-secondary-fixed focus:shadow-hard-lime transition-all placeholder:text-outline"
+                    placeholder="Springs Church" type="text" list="church-list" autocomplete="off" />
+                  <datalist id="church-list"></datalist>
+                </label>
+
+              </div>
+            </fieldset>
+
+            <!-- Captain comms -->
+            <fieldset class="border-4 border-black p-5 md:p-6 bg-surface-dim relative">
+              <legend class="bg-primary-container text-on-primary-container font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black ml-3 -translate-y-1">CAPTAIN · COMMS</legend>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
+
+                <label class="relative block md:col-span-2">
+                  <span class="absolute -top-3 left-3 bg-secondary text-on-secondary-fixed font-mono text-label-mono-sm uppercase px-2 border-2 border-black z-10">CAPTAIN NAME</span>
+                  <input name="captainName" required maxlength="60"
+                    class="w-full bg-background border-4 border-black text-secondary font-body text-body-md p-4 focus:outline-none focus:border-secondary-fixed focus:shadow-hard-lime transition-all placeholder:text-outline"
+                    placeholder="First Last" type="text" autocomplete="name" />
+                </label>
+
+                <label class="relative block">
+                  <span class="absolute -top-3 left-3 bg-secondary text-on-secondary-fixed font-mono text-label-mono-sm uppercase px-2 border-2 border-black z-10">EMAIL</span>
+                  <input name="captainEmail" required type="email" maxlength="100"
+                    class="w-full bg-background border-4 border-black text-secondary font-body text-body-md p-4 focus:outline-none focus:border-secondary-fixed focus:shadow-hard-lime transition-all placeholder:text-outline"
+                    placeholder="captain@email.com" autocomplete="email" />
+                </label>
+
+                <label class="relative block">
+                  <span class="absolute -top-3 left-3 bg-secondary text-on-secondary-fixed font-mono text-label-mono-sm uppercase px-2 border-2 border-black z-10">PHONE</span>
+                  <input name="captainPhone" required type="tel" maxlength="20"
+                    class="w-full bg-background border-4 border-black text-secondary font-body text-body-md p-4 focus:outline-none focus:border-secondary-fixed focus:shadow-hard-lime transition-all placeholder:text-outline"
+                    placeholder="(719) 555-0101" autocomplete="tel" />
+                </label>
+
+              </div>
+            </fieldset>
+
+            <!-- Adult leader -->
+            <fieldset class="border-4 border-black p-5 md:p-6 bg-surface-dim relative">
+              <legend class="bg-tertiary text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black ml-3 -translate-y-1">ADULT LEADER</legend>
+              <p class="font-mono text-label-mono uppercase text-on-surface-variant mb-3 mt-2">
+                Required · This is who we contact day-of for the squad.
+              </p>
+              <label class="relative block">
+                <span class="absolute -top-3 left-3 bg-secondary text-on-secondary-fixed font-mono text-label-mono-sm uppercase px-2 border-2 border-black z-10">LEADER NAME</span>
+                <input name="adultLeader" required maxlength="60"
+                  class="w-full bg-background border-4 border-black text-secondary font-body text-body-md p-4 focus:outline-none focus:border-secondary-fixed focus:shadow-hard-lime transition-all placeholder:text-outline"
+                  placeholder="Pastor / Leader / Parent name" type="text" autocomplete="off" />
+              </label>
+            </fieldset>
+
+            <!-- Roster -->
+            <fieldset class="border-4 border-black p-5 md:p-6 bg-surface-dim relative">
+              <legend class="bg-secondary-fixed text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black ml-3 -translate-y-1">ROSTER · <span id="roster-count">0/6</span></legend>
+              <p class="font-mono text-label-mono uppercase text-on-surface-variant mb-4 mt-2">
+                Up to 6 players · Min 4 to compete · MS or HS
+              </p>
+              <div id="roster-rows" class="space-y-3"></div>
+              <button type="button" id="add-player-btn"
+                class="press mt-4 w-full md:w-auto inline-flex items-center justify-center gap-2 bg-surface-container border-4 border-black px-5 py-3 font-mono text-label-mono uppercase font-bold text-secondary shadow-hard hover:bg-surface-container-high">
+                <span class="material-symbols-outlined text-xl">add</span>
+                ADD PLAYER
+              </button>
+            </fieldset>
+
+            <!-- Terms -->
+            <label class="flex items-start gap-3 p-4 border-4 border-black bg-surface-container-high cursor-pointer">
+              <input id="terms" name="terms" required type="checkbox"
+                class="mt-1 w-6 h-6 bg-background border-4 border-black text-secondary-fixed focus:ring-0 focus:ring-offset-0 cursor-pointer" />
+              <span class="font-body text-body-sm text-on-surface">
+                I confirm my squad is MS or HS aged, that I'll bring the parent / leader info day-of,
+                and I'll behave like Jesus is watching (he is).
+              </span>
+            </label>
+
+            <!-- Submit -->
+            <button id="submit-btn" type="submit"
+              class="press w-full bg-secondary-fixed text-on-secondary-fixed font-display text-headline-md md:text-headline-lg uppercase font-black border-4 border-black py-5 px-6 shadow-hard-cobalt-lg flex items-center justify-center gap-3">
+              <span id="submit-label">PROCEED TO PAYMENT · $25</span>
+              <span class="material-symbols-outlined text-3xl">arrow_forward</span>
+            </button>
+
+            <p class="text-center font-mono text-label-mono-sm uppercase text-on-surface-variant">
+              Squad locks in once payment clears via CCB.
+            </p>
+          </form>
+
+          <!-- Tape -->
+          <div class="absolute -bottom-3 -right-3 w-24 h-7 bg-surface-variant tape-texture border-2 border-black rot-neg-6 z-20"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUCCESS PAGE ===== -->
+  <section id="page-success" class="page">
+    <div class="px-5 md:px-10 py-12 md:py-20 max-w-3xl mx-auto">
+      <div class="bg-surface-container border-4 border-black shadow-hard-lime p-6 md:p-10 relative">
+        <div class="hazard-stripes h-4 absolute top-0 left-0 right-0"></div>
+        <div class="hazard-stripes h-4 absolute bottom-0 left-0 right-0"></div>
+        <div class="pt-8 pb-8 text-center">
+          <div class="inline-flex items-center justify-center w-24 h-24 bg-secondary-fixed border-4 border-black shadow-hard mb-6">
+            <span class="material-symbols-outlined text-6xl text-on-secondary-fixed">check</span>
+          </div>
+          <h1 class="font-display text-headline-lg uppercase text-secondary leading-none mb-3">SQUAD LOCKED IN</h1>
+          <p class="font-body text-body-lg text-on-surface-variant max-w-md mx-auto mb-6">
+            Payment received. Your squad's officially in the Springs Cup.
+            Confirmation email is on its way.
+          </p>
+          <div id="success-team" class="font-mono text-label-mono uppercase bg-surface-dim border-2 border-outline-variant inline-block px-4 py-2 mb-8"></div>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="#/squads" class="press bg-primary-container text-on-primary-container font-mono text-label-mono uppercase font-bold px-6 py-3 border-4 border-black shadow-hard">VIEW SQUADS</a>
+            <a href="#/home" class="press bg-surface-container text-secondary font-mono text-label-mono uppercase font-bold px-6 py-3 border-4 border-black shadow-hard">BACK TO HOME</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PENDING PAGE (after register, before CCB) ===== -->
+  <section id="page-pending" class="page">
+    <div class="px-5 md:px-10 py-12 md:py-20 max-w-3xl mx-auto">
+      <div class="bg-surface-container border-4 border-black shadow-hard-cobalt-lg p-6 md:p-10 relative">
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-24 h-24 bg-primary-container border-4 border-black shadow-hard mb-6">
+            <span class="material-symbols-outlined text-6xl text-on-primary-container">payments</span>
+          </div>
+          <h1 class="font-display text-headline-lg uppercase text-secondary leading-none mb-3">SQUAD ON DECK</h1>
+          <p class="font-body text-body-lg text-on-surface-variant max-w-md mx-auto mb-6">
+            Roster saved. One last move: pay $25 via Springs Church (CCB) to lock in your spot.
+          </p>
+          <div id="pending-team" class="font-mono text-label-mono uppercase bg-surface-dim border-2 border-outline-variant inline-block px-4 py-2 mb-8"></div>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <button id="pay-btn" class="press bg-secondary-fixed text-on-secondary-fixed font-display text-headline-md uppercase font-black px-7 py-4 border-4 border-black shadow-hard">PAY $25 NOW →</button>
+            <a href="#/squads" class="press bg-surface-container border-4 border-black px-6 py-4 text-secondary font-mono text-label-mono uppercase font-bold shadow-hard">VIEW SQUADS</a>
+          </div>
+          <p class="font-mono text-label-mono-sm uppercase text-on-surface-variant mt-6">
+            Payment opens in a new tab. Your squad shows as PENDING until it clears.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SQUADS / LEADERBOARD PAGE ===== -->
+  <section id="page-squads" class="page">
+    <div class="px-5 md:px-10 py-10 md:py-14 max-w-7xl mx-auto w-full">
+      <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 md:mb-10">
+        <div>
+          <h1 class="font-display text-display-lg uppercase text-secondary leading-none">REGISTERED<br/><span class="text-secondary-fixed">SQUADS</span></h1>
+          <p class="font-mono text-label-mono uppercase text-on-surface-variant mt-3">Live roster · pending squads aren't paid yet</p>
+        </div>
+        <a href="#/register" class="press bg-secondary-fixed text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-5 py-3 border-4 border-black shadow-hard self-start">+ ADD YOUR SQUAD</a>
+      </header>
+
+      <div id="squad-stats" class="grid grid-cols-3 gap-3 md:gap-4 mb-8">
+        <div class="bg-surface-container border-4 border-black shadow-hard p-3 md:p-5 text-center">
+          <div data-stat="locked" class="font-display text-headline-md font-black text-secondary-fixed">0</div>
+          <div class="font-mono text-label-mono-sm uppercase text-on-surface-variant mt-1">LOCKED IN</div>
+        </div>
+        <div class="bg-surface-container border-4 border-black shadow-hard p-3 md:p-5 text-center">
+          <div data-stat="pending" class="font-display text-headline-md font-black text-tertiary">0</div>
+          <div class="font-mono text-label-mono-sm uppercase text-on-surface-variant mt-1">PENDING</div>
+        </div>
+        <div class="bg-surface-container border-4 border-black shadow-hard p-3 md:p-5 text-center">
+          <div data-stat="churches" class="font-display text-headline-md font-black text-primary">0</div>
+          <div class="font-mono text-label-mono-sm uppercase text-on-surface-variant mt-1">CHURCHES</div>
+        </div>
+      </div>
+
+      <div id="squad-list" class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"></div>
+
+      <div id="squad-empty" class="hidden bg-surface-container border-4 border-black shadow-hard-lg p-10 text-center halftone-bg">
+        <span class="material-symbols-outlined text-6xl text-on-surface-variant">groups</span>
+        <h2 class="font-display text-headline-md uppercase mt-3 text-secondary">NO SQUADS YET</h2>
+        <p class="font-mono text-label-mono uppercase text-on-surface-variant mt-2">Be the first to claim your spot.</p>
+        <a href="#/register" class="press inline-block mt-6 bg-secondary-fixed text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-6 py-3 border-4 border-black shadow-hard">REGISTER NOW</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLAYBOOK / RULES PAGE ===== -->
+  <section id="page-playbook" class="page">
+    <div class="px-5 md:px-10 py-10 md:py-14 max-w-4xl mx-auto w-full">
+
+      <header class="mb-8 md:mb-12">
+        <h1 class="font-display text-display-lg uppercase text-secondary leading-none">THE<br/><span class="text-secondary-fixed">PLAYBOOK</span></h1>
+        <p class="font-mono text-label-mono uppercase text-on-surface-variant mt-3 border-l-4 border-secondary-fixed pl-3">RULES · FORMAT · WHAT TO BRING</p>
+      </header>
+
+      <div class="space-y-5 md:space-y-6">
+
+        <!-- Rule card -->
+        <article class="bg-surface-container border-4 border-black shadow-hard-lg p-5 md:p-7 relative halftone-bg">
+          <div class="bg-secondary-fixed text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black absolute -top-4 left-5 shadow-hard">01 · WHO PLAYS</div>
+          <h2 class="font-display text-headline-md uppercase text-secondary mt-3 mb-2">MS + HS Students</h2>
+          <p class="font-body text-body-md text-on-surface-variant">
+            Open to middle school and high school students from any church or youth group across the Springs.
+            You don't have to attend Springs Church to play.
+          </p>
+        </article>
+
+        <article class="bg-surface-container border-4 border-black shadow-hard-lg p-5 md:p-7 relative halftone-bg">
+          <div class="bg-primary-container text-on-primary-container font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black absolute -top-4 left-5 shadow-hard">02 · SQUAD SIZE</div>
+          <h2 class="font-display text-headline-md uppercase text-secondary mt-3 mb-2">6 on the Roster · 4 on the Court</h2>
+          <p class="font-body text-body-md text-on-surface-variant">
+            Up to 6 players per squad. Minimum 4 to compete. If you don't have 6, that's fine —
+            sign up with what you've got and we'll find you a game.
+          </p>
+        </article>
+
+        <article class="bg-surface-container border-4 border-black shadow-hard-lg p-5 md:p-7 relative halftone-bg">
+          <div class="bg-tertiary text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black absolute -top-4 left-5 shadow-hard">03 · ENTRY</div>
+          <h2 class="font-display text-headline-md uppercase text-secondary mt-3 mb-2">$25 / squad</h2>
+          <p class="font-body text-body-md text-on-surface-variant">
+            Covers the gym, refs, balls, and pizza after. Paid through Springs Church (CCB) when you register.
+            Squads aren't locked in until payment clears.
+          </p>
+        </article>
+
+        <article class="bg-surface-container border-4 border-black shadow-hard-lg p-5 md:p-7 relative halftone-bg">
+          <div class="bg-secondary-fixed text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black absolute -top-4 left-5 shadow-hard">04 · FORMAT</div>
+          <h2 class="font-display text-headline-md uppercase text-secondary mt-3 mb-2">Round Robin → Single Elim</h2>
+          <p class="font-body text-body-md text-on-surface-variant">
+            Pool play first — every squad gets a few games. Then single-elimination bracket
+            for the squads that earn it.
+          </p>
+        </article>
+
+        <article class="bg-surface-container border-4 border-black shadow-hard-lg p-5 md:p-7 relative halftone-bg">
+          <div class="bg-primary-container text-on-primary-container font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black absolute -top-4 left-5 shadow-hard">05 · WHAT TO BRING</div>
+          <h2 class="font-display text-headline-md uppercase text-secondary mt-3 mb-2">Yourself, Mostly</h2>
+          <ul class="font-body text-body-md text-on-surface-variant space-y-2 list-none mt-2">
+            <li class="flex gap-2"><span class="text-secondary-fixed font-bold">▸</span> Athletic shoes (no boots / sandals)</li>
+            <li class="flex gap-2"><span class="text-secondary-fixed font-bold">▸</span> Squad-color shirts if you want (optional, looks 🔥 in photos)</li>
+            <li class="flex gap-2"><span class="text-secondary-fixed font-bold">▸</span> Water bottle</li>
+            <li class="flex gap-2"><span class="text-secondary-fixed font-bold">▸</span> One adult leader from your church / group</li>
+          </ul>
+        </article>
+
+        <article class="bg-surface-container border-4 border-black shadow-hard-lg p-5 md:p-7 relative halftone-bg">
+          <div class="bg-tertiary text-on-secondary-fixed font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black absolute -top-4 left-5 shadow-hard">06 · RULES OF WAR</div>
+          <h2 class="font-display text-headline-md uppercase text-secondary mt-3 mb-2">Standard Dodgeball</h2>
+          <ul class="font-body text-body-md text-on-surface-variant space-y-2 list-none mt-2">
+            <li class="flex gap-2"><span class="text-secondary-fixed font-bold">▸</span> Hit below the shoulders = you're out</li>
+            <li class="flex gap-2"><span class="text-secondary-fixed font-bold">▸</span> Catch a throw = thrower's out, plus a teammate back in</li>
+            <li class="flex gap-2"><span class="text-secondary-fixed font-bold">▸</span> No headshots on purpose. Keep it fun</li>
+            <li class="flex gap-2"><span class="text-secondary-fixed font-bold">▸</span> Refs' calls are final. Argue and you sit</li>
+          </ul>
+        </article>
+
+        <article class="bg-secondary-fixed text-on-secondary-fixed border-4 border-black shadow-hard-lg p-5 md:p-7 relative">
+          <div class="bg-on-secondary-fixed text-secondary-fixed font-mono text-label-mono uppercase font-bold px-3 py-1 border-4 border-black absolute -top-4 left-5 shadow-hard">07 · QUESTIONS?</div>
+          <h2 class="font-display text-headline-md uppercase mt-3 mb-2">Hit Up Anthem Youth</h2>
+          <p class="font-body text-body-md">
+            Email <a href="mailto:joshua@springs.church" class="underline font-bold">joshua@springs.church</a>
+            with anything. We'll get you sorted.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ MOBILE BOTTOM NAV ============ -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-highest border-t-4 border-black shadow-[0_-4px_0_0_#000] z-50 bottom-tabs">
+  <div class="flex justify-around items-stretch px-2 pt-2">
+    <a data-nav="home" href="#/home" class="tab-link flex flex-col items-center justify-center gap-1 px-2 py-2 min-w-[64px]">
+      <span class="material-symbols-outlined text-2xl">sports_kabaddi</span>
+      <span class="font-mono text-[10px] uppercase font-bold tracking-widest">HOME</span>
+    </a>
+    <a data-nav="register" href="#/register" class="tab-link flex flex-col items-center justify-center gap-1 px-2 py-2 min-w-[64px]">
+      <span class="material-symbols-outlined text-2xl">how_to_reg</span>
+      <span class="font-mono text-[10px] uppercase font-bold tracking-widest">JOIN</span>
+    </a>
+    <a data-nav="squads" href="#/squads" class="tab-link flex flex-col items-center justify-center gap-1 px-2 py-2 min-w-[64px]">
+      <span class="material-symbols-outlined text-2xl">groups</span>
+      <span class="font-mono text-[10px] uppercase font-bold tracking-widest">SQUADS</span>
+    </a>
+    <a data-nav="playbook" href="#/playbook" class="tab-link flex flex-col items-center justify-center gap-1 px-2 py-2 min-w-[64px]">
+      <span class="material-symbols-outlined text-2xl">menu_book</span>
+      <span class="font-mono text-[10px] uppercase font-bold tracking-widest">RULES</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ============ FOOTER ============ -->
+<footer class="hidden md:block border-t-4 border-black bg-surface-container-low px-10 py-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="font-mono text-label-mono uppercase text-on-surface-variant">
+      © Springs Cup · Hosted by Springs Church · No mercy promised
+    </div>
+    <div class="flex gap-4 font-mono text-label-mono uppercase">
+      <a href="mailto:joshua@springs.church" class="text-secondary-fixed underline hover:text-secondary-fixed-dim">CONTACT</a>
+      <a href="#/playbook" class="text-on-surface-variant hover:text-secondary">RULES</a>
+      <a href="https://www.springs.church" target="_blank" rel="noopener" class="text-on-surface-variant hover:text-secondary">SPRINGS CHURCH ↗</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ TOAST ============ -->
+<div id="toast" class="toast">
+  <div class="bg-surface-container border-4 border-black shadow-hard-lg px-5 py-3 font-mono text-label-mono uppercase text-secondary flex items-center gap-3">
+    <span class="material-symbols-outlined" id="toast-icon">info</span>
+    <span id="toast-text">·</span>
+  </div>
+</div>
+
+<!-- ============ APP SCRIPT ============ -->
+<script>
+(() => {
+  'use strict';
+
+  // -------------------- CONFIG --------------------
+  const CONFIG = {
+    MAX_PLAYERS: 6,
+    MIN_PLAYERS: 4,
+    ENTRY_FEE: 25,
+
+    // PHASE 2 (Apps Script + Sheet) — paste your deployed Web app URL here
+    // Empty string = local-only mode (registers persist in browser only)
+    BACKEND_URL: '',
+
+    // PHASE 3 (CCB form) — paste your CCB registration form URL here
+    // Empty string = "simulated payment" demo button
+    CCB_FORM_URL: '',
+
+    CONTACT_EMAIL: 'joshua@springs.church',
+
+    // Site URL used in OG and back-redirects (CCB → Apps Script → here)
+    SITE_URL: 'https://springscup.com/',
+  };
+
+  // -------------------- STATE --------------------
+  const state = {
+    teams: [],          // loaded from backend
+    pendingTeam: null,  // team awaiting payment in this session
+  };
+
+  // -------------------- DOM HELPERS --------------------
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+  function escapeHtml(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+
+  function uid() {
+    return 'sq_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
+  }
+
+  function showToast(text, icon = 'info', timeout = 2800) {
+    const t = $('#toast');
+    $('#toast-text').textContent = text;
+    $('#toast-icon').textContent = icon;
+    t.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => t.classList.remove('show'), timeout);
+  }
+
+  // -------------------- ROUTING --------------------
+  const VALID_ROUTES = ['home', 'register', 'squads', 'playbook', 'pending', 'success'];
+
+  function currentRoute() {
+    const hash = (location.hash || '#/home').replace(/^#\//, '').split('?')[0];
+    return VALID_ROUTES.includes(hash) ? hash : 'home';
+  }
+
+  function navigate(route) {
+    if (!VALID_ROUTES.includes(route)) route = 'home';
+    if (location.hash !== '#/' + route) {
+      location.hash = '#/' + route;
+    } else {
+      render();
+    }
+  }
+
+  function render() {
+    const route = currentRoute();
+
+    // Show only the active page
+    $$('.page').forEach(p => p.classList.toggle('active', p.id === 'page-' + route));
+
+    // Update nav highlights
+    $$('[data-nav]').forEach(el => {
+      const isActive = el.dataset.nav === route;
+      el.classList.toggle('text-secondary-fixed', isActive);
+      el.classList.toggle('text-on-surface-variant', !isActive);
+      // desktop top nav extra styling
+      if (el.classList.contains('nav-link')) {
+        el.classList.toggle('bg-primary-container', isActive);
+        el.classList.toggle('shadow-hard', isActive);
+        el.classList.toggle('border-black', isActive);
+      }
+    });
+
+    // Page-specific renders
+    if (route === 'squads') renderSquads();
+    if (route === 'register') ensureRosterRow();
+    if (route === 'pending') renderPending();
+    if (route === 'success') renderSuccess();
+
+    // Scroll top on nav (but not on initial load with paid=)
+    if (!document._initialLoad) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }
+
+  window.addEventListener('hashchange', render);
+
+  // -------------------- BACKEND --------------------
+  async function fetchTeams() {
+    if (!CONFIG.BACKEND_URL) {
+      // local fallback
+      try {
+        state.teams = JSON.parse(localStorage.getItem('sc_teams') || '[]');
+      } catch { state.teams = []; }
+      return state.teams;
+    }
+    try {
+      const res = await fetch(CONFIG.BACKEND_URL + '?action=list');
+      const data = await res.json();
+      state.teams = Array.isArray(data.teams) ? data.teams : [];
+      return state.teams;
+    } catch (err) {
+      console.warn('Could not load teams', err);
+      showToast('Could not load squads', 'wifi_off');
+      state.teams = [];
+      return state.teams;
+    }
+  }
+
+  async function registerTeam(team) {
+    if (!CONFIG.BACKEND_URL) {
+      // local fallback
+      const teams = JSON.parse(localStorage.getItem('sc_teams') || '[]');
+      const dup = teams.some(t => String(t.teamName).trim().toUpperCase() === team.teamName.trim().toUpperCase());
+      if (dup) throw new Error('A squad with that name is already registered');
+      teams.push(team);
+      localStorage.setItem('sc_teams', JSON.stringify(teams));
+      state.teams = teams;
+      return team;
+    }
+    const res = await fetch(CONFIG.BACKEND_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // Apps Script CORS-friendly
+      body: JSON.stringify({ action: 'register', team }),
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    return data.team;
+  }
+
+  async function markPaidLocal(teamId) {
+    // Local fallback only — Apps Script handles real markPaid via CCB redirect
+    const teams = JSON.parse(localStorage.getItem('sc_teams') || '[]');
+    const t = teams.find(t => t.id === teamId);
+    if (t) { t.status = 'LOCKED_IN'; localStorage.setItem('sc_teams', JSON.stringify(teams)); }
+    state.teams = teams;
+  }
+
+  // -------------------- ROSTER (form rows) --------------------
+  function rosterRowHtml(idx) {
+    return `
+      <div class="player-row grid grid-cols-[1fr_auto_auto] gap-2 items-center bg-background border-2 border-outline-variant p-2">
+        <input name="player-${idx}" maxlength="50" placeholder="Player ${idx + 1} name"
+          class="bg-transparent text-secondary font-body text-body-md p-2 focus:outline-none placeholder:text-outline" />
+        <select name="grade-${idx}" class="bg-surface-container border-2 border-outline-variant text-secondary font-mono text-label-mono uppercase p-2 focus:outline-none focus:border-secondary-fixed">
+          <option value="">GRADE</option>
+          <option>6th</option><option>7th</option><option>8th</option>
+          <option>9th</option><option>10th</option><option>11th</option><option>12th</option>
+        </select>
+        <button type="button" class="remove-player press w-10 h-10 bg-error-container text-on-error-container border-2 border-black flex items-center justify-center" aria-label="Remove">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+    `;
+  }
+
+  function rebuildRosterIndices() {
+    $$('#roster-rows .player-row').forEach((row, i) => {
+      row.querySelector('input').setAttribute('name', 'player-' + i);
+      row.querySelector('input').setAttribute('placeholder', 'Player ' + (i + 1) + ' name');
+      row.querySelector('select').setAttribute('name', 'grade-' + i);
+    });
+    updateRosterCount();
+  }
+
+  function updateRosterCount() {
+    const count = $$('#roster-rows .player-row').length;
+    $('#roster-count').textContent = count + '/' + CONFIG.MAX_PLAYERS;
+    $('#add-player-btn').disabled = count >= CONFIG.MAX_PLAYERS;
+    $('#add-player-btn').classList.toggle('opacity-50', count >= CONFIG.MAX_PLAYERS);
+  }
+
+  function addRosterRow() {
+    const rows = $('#roster-rows');
+    if (rows.children.length >= CONFIG.MAX_PLAYERS) return;
+    const idx = rows.children.length;
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = rosterRowHtml(idx);
+    rows.appendChild(wrapper.firstElementChild);
+    bindRosterRemoveButtons();
+    updateRosterCount();
+  }
+
+  function bindRosterRemoveButtons() {
+    $$('#roster-rows .remove-player').forEach(btn => {
+      btn.onclick = () => {
+        const row = btn.closest('.player-row');
+        if (!row) return;
+        // keep at least one row in the form
+        if ($$('#roster-rows .player-row').length <= 1) {
+          row.querySelector('input').value = '';
+          row.querySelector('select').value = '';
+          return;
+        }
+        row.remove();
+        rebuildRosterIndices();
+      };
+    });
+  }
+
+  function ensureRosterRow() {
+    const rows = $('#roster-rows');
+    if (!rows) return;
+    if (rows.children.length === 0) {
+      // start with 4 empty rows (the minimum)
+      for (let i = 0; i < CONFIG.MIN_PLAYERS; i++) addRosterRow();
+    }
+  }
+
+  function readRoster() {
+    return $$('#roster-rows .player-row').map(row => ({
+      name: row.querySelector('input').value.trim(),
+      grade: row.querySelector('select').value,
+    })).filter(p => p.name.length > 0);
+  }
+
+  // -------------------- REGISTER FORM --------------------
+  function bindRegisterForm() {
+    const form = $('#register-form');
+    if (!form) return;
+
+    $('#add-player-btn').addEventListener('click', addRosterRow);
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (form._busy) return;
+
+      const fd = new FormData(form);
+      const teamName = String(fd.get('teamName') || '').trim();
+      const church = String(fd.get('church') || '').trim();
+      const captainName = String(fd.get('captainName') || '').trim();
+      const captainEmail = String(fd.get('captainEmail') || '').trim();
+      const captainPhone = String(fd.get('captainPhone') || '').trim();
+      const adultLeader = String(fd.get('adultLeader') || '').trim();
+      const players = readRoster();
+      const terms = $('#terms').checked;
+
+      // Validate
+      const errors = [];
+      if (!teamName) errors.push('Squad name required');
+      if (!church) errors.push('Church / group required');
+      if (!captainName) errors.push('Captain name required');
+      if (!captainEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(captainEmail)) errors.push('Valid email required');
+      if (!captainPhone || captainPhone.replace(/\D/g, '').length < 10) errors.push('Valid phone required');
+      if (!adultLeader) errors.push('Adult leader name required');
+      if (players.length < CONFIG.MIN_PLAYERS) errors.push(`Min ${CONFIG.MIN_PLAYERS} players required`);
+      if (players.length > CONFIG.MAX_PLAYERS) errors.push(`Max ${CONFIG.MAX_PLAYERS} players allowed`);
+      if (!terms) errors.push('Confirm the terms checkbox');
+
+      if (errors.length) {
+        showToast(errors[0], 'error');
+        return;
+      }
+
+      // Build team object
+      const team = {
+        id: uid(),
+        teamName,
+        church,
+        captainName,
+        captainEmail,
+        captainPhone,
+        adultLeader,
+        players,
+        status: 'PENDING',
+        createdAt: Date.now(),
+      };
+
+      // Submit
+      form._busy = true;
+      const btn = $('#submit-btn');
+      const label = $('#submit-label');
+      const oldLabel = label.textContent;
+      btn.disabled = true;
+      label.textContent = 'SAVING...';
+
+      try {
+        const saved = await registerTeam(team);
+        state.pendingTeam = saved;
+        // store last team id locally for return-from-CCB recognition
+        try { localStorage.setItem('sc_lastTeamId', saved.id); } catch {}
+        showToast('Squad saved · pay to lock in', 'check');
+        navigate('pending');
+      } catch (err) {
+        console.error(err);
+        showToast(err.message || 'Could not save squad', 'error');
+      } finally {
+        form._busy = false;
+        btn.disabled = false;
+        label.textContent = oldLabel;
+      }
+    });
+  }
+
+  // -------------------- PENDING / PAYMENT --------------------
+  function renderPending() {
+    const team = state.pendingTeam;
+    if (!team) {
+      // No pending team in session — bounce to register
+      navigate('register');
+      return;
+    }
+    $('#pending-team').textContent = team.teamName + ' · ' + team.church;
+    $('#pay-btn').onclick = () => goToPayment(team);
+  }
+
+  function goToPayment(team) {
+    if (CONFIG.CCB_FORM_URL) {
+      // Pre-fill team data in CCB form via URL params
+      const url = new URL(CONFIG.CCB_FORM_URL);
+      url.searchParams.set('teamId', team.id);
+      url.searchParams.set('teamName', team.teamName);
+      url.searchParams.set('email', team.captainEmail);
+      url.searchParams.set('captain', team.captainName);
+      window.open(url.toString(), '_blank', 'noopener');
+      showToast('Payment opened in new tab', 'open_in_new');
+    } else {
+      // Demo mode — simulate payment
+      if (!confirm('Demo mode: simulate payment received? (CCB_FORM_URL not configured yet)')) return;
+      markPaidLocal(team.id).then(() => {
+        navigate('success');
+      });
+    }
+  }
+
+  // -------------------- SUCCESS --------------------
+  function renderSuccess() {
+    const team = state.pendingTeam;
+    $('#success-team').textContent = team
+      ? team.teamName + ' · ' + team.church
+      : 'YOUR SQUAD IS LOCKED IN';
+  }
+
+  // -------------------- SQUADS / LEADERBOARD --------------------
+  async function renderSquads() {
+    const list = $('#squad-list');
+    const empty = $('#squad-empty');
+
+    list.innerHTML = '<div class="col-span-full text-center font-mono text-label-mono uppercase text-on-surface-variant py-10">LOADING...</div>';
+
+    await fetchTeams();
+    const teams = state.teams;
+
+    // Stats
+    const locked = teams.filter(t => t.status === 'LOCKED_IN').length;
+    const pending = teams.filter(t => t.status !== 'LOCKED_IN').length;
+    const churches = new Set(teams.map(t => String(t.church || '').trim().toUpperCase()).filter(Boolean)).size;
+
+    $('[data-stat="locked"]').textContent = locked;
+    $('[data-stat="pending"]').textContent = pending;
+    $('[data-stat="churches"]').textContent = churches;
+
+    // Update churches datalist for the form
+    const dl = $('#church-list');
+    if (dl) {
+      const set = Array.from(new Set(teams.map(t => t.church).filter(Boolean))).sort();
+      dl.innerHTML = set.map(c => `<option value="${escapeHtml(c)}">`).join('');
+    }
+
+    // Update home page status
+    const homeStatus = $('#hero-status');
+    if (homeStatus) {
+      const total = locked + pending;
+      homeStatus.textContent = total > 0
+        ? `${total} ${total === 1 ? 'SQUAD' : 'SQUADS'} IN · REGISTRATION OPEN`
+        : 'REGISTRATION OPEN';
+    }
+    const teamsStat = $('[data-stat="teams"]');
+    if (teamsStat) teamsStat.textContent = teams.length || '—';
+
+    // List
+    if (teams.length === 0) {
+      list.innerHTML = '';
+      empty.classList.remove('hidden');
+      return;
+    }
+    empty.classList.add('hidden');
+
+    // Sort: locked-in first, then by created date
+    const sorted = [...teams].sort((a, b) => {
+      if (a.status !== b.status) return a.status === 'LOCKED_IN' ? -1 : 1;
+      return (a.createdAt || 0) - (b.createdAt || 0);
+    });
+
+    list.innerHTML = sorted.map((t, i) => squadCardHtml(t, i)).join('');
+  }
+
+  function squadCardHtml(t, idx) {
+    const isLocked = t.status === 'LOCKED_IN';
+    const playerCount = (t.players || []).length;
+    const statusBadge = isLocked
+      ? '<span class="bg-secondary-fixed text-on-secondary-fixed font-mono text-label-mono-sm uppercase font-bold px-2 py-1 border-2 border-black shadow-hard">LOCKED IN</span>'
+      : '<span class="bg-tertiary text-on-secondary-fixed font-mono text-label-mono-sm uppercase font-bold px-2 py-1 border-2 border-black shadow-hard">PENDING</span>';
+
+    const headerColor = isLocked ? 'bg-primary-container text-on-primary-container' : 'bg-surface-container-high text-secondary';
+
+    const players = (t.players || []).slice(0, 6).map(p => {
+      const name = escapeHtml(p.name || '');
+      const grade = p.grade ? `<span class="text-on-surface-variant font-mono text-label-mono-sm">${escapeHtml(p.grade)}</span>` : '';
+      return `<li class="flex items-baseline justify-between gap-2 border-b border-outline-variant py-1.5"><span class="text-secondary truncate">${name}</span>${grade}</li>`;
+    }).join('');
+
+    return `
+      <article class="bg-surface-container border-4 border-black shadow-hard-lg overflow-hidden">
+        <header class="${headerColor} border-b-4 border-black px-4 py-3 flex items-center justify-between gap-3">
+          <div class="min-w-0">
+            <div class="font-display text-headline-sm uppercase truncate">${escapeHtml(t.teamName || '—')}</div>
+            <div class="font-mono text-label-mono-sm uppercase opacity-80 truncate">${escapeHtml(t.church || '—')}</div>
+          </div>
+          ${statusBadge}
+        </header>
+        <div class="p-4">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-label-mono-sm uppercase text-on-surface-variant">ROSTER · ${playerCount}/${CONFIG.MAX_PLAYERS}</span>
+            <span class="font-mono text-label-mono-sm uppercase text-on-surface-variant">#${String(idx + 1).padStart(2, '0')}</span>
+          </div>
+          <ul class="text-body-sm">${players || '<li class="text-on-surface-variant font-mono text-label-mono-sm uppercase py-2">No roster yet</li>'}</ul>
+        </div>
+      </article>
+    `;
+  }
+
+  // -------------------- INITIAL LOAD --------------------
+  async function init() {
+    document._initialLoad = true;
+    bindRegisterForm();
+
+    // Handle CCB return: ?paid=teamId in the query
+    const params = new URLSearchParams(location.search);
+    const paidId = params.get('paid');
+    if (paidId) {
+      // Try to use last-known team for the success page
+      let lastId = null;
+      try { lastId = localStorage.getItem('sc_lastTeamId'); } catch {}
+      await fetchTeams();
+      let t = state.teams.find(x => x.id === paidId);
+      if (!t && lastId === paidId) {
+        // fallback: synthesize minimal info
+        t = { id: paidId, teamName: 'YOUR SQUAD', church: '', status: 'LOCKED_IN' };
+      }
+      state.pendingTeam = t || null;
+      // Clean URL and route to success
+      history.replaceState(null, '', location.pathname + '#/success');
+      render();
+      document._initialLoad = false;
+      return;
+    }
+
+    // Pre-load teams in the background so home stats update
+    fetchTeams().then(() => {
+      // Re-render whichever route is active so stats update
+      const route = currentRoute();
+      if (route === 'squads' || route === 'home') render();
+      // populate church datalist on initial load
+      const dl = $('#church-list');
+      if (dl) {
+        const set = Array.from(new Set(state.teams.map(t => t.church).filter(Boolean))).sort();
+        dl.innerHTML = set.map(c => `<option value="${escapeHtml(c)}">`).join('');
+      }
+      // home stats
+      const teamsStat = $('[data-stat="teams"]');
+      if (teamsStat && state.teams.length) teamsStat.textContent = state.teams.length;
+      const homeStatus = $('#hero-status');
+      if (homeStatus) {
+        const total = state.teams.length;
+        homeStatus.textContent = total > 0
+          ? `${total} ${total === 1 ? 'SQUAD' : 'SQUADS'} IN · REGISTRATION OPEN`
+          : 'REGISTRATION OPEN';
+      }
+    });
+
+    render();
+    document._initialLoad = false;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
